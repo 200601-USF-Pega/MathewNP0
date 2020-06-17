@@ -5,11 +5,13 @@ import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.Properties;
+import java.util.logging.Logger;
 
 public class ConnectionService {
 
     private static ConnectionService  connectionSingleton = null;
     private Connection connection;
+    private static Logger logger = Logger.getLogger("Connection.class");
 
     public ConnectionService() {
         try  {
@@ -31,7 +33,8 @@ public class ConnectionService {
     public static ConnectionService getInstance() {
        if(connectionSingleton == null) {
            connectionSingleton = new ConnectionService();
-           System.out.println("Connection started.");
+           //System.out.println("Connection started.");
+           logger.info("Connecton started.");
        }
        return connectionSingleton;
     }

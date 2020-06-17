@@ -33,6 +33,9 @@ public class InventoryService {
         }
         return catalogList.size();
     }
+    public List<Catalog> getCatalogList(){
+        return inventoryRepoDB.getAllCatalogs();
+    }
 
     public Map<Integer, Catalog> getInventoryMap(){
         Map<Integer, Catalog> catalogMap = new HashMap<>();

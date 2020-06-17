@@ -8,7 +8,12 @@ import com.revature.libraryconsoleapp.menu.ViewClass;
 import com.revature.libraryconsoleapp.models.User;
 import com.revature.libraryconsoleapp.service.ConnectionService;
 import com.revature.libraryconsoleapp.service.ValidationService;
+import com.revature.libraryconsoleapp.wagu.Block;
+import com.revature.libraryconsoleapp.wagu.Board;
+import com.revature.libraryconsoleapp.wagu.Table;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -27,7 +32,7 @@ public class EditUserMenu implements ISessionMenu {
         Scanner input = new Scanner(System.in);
         ViewClass.printSessionHeader("Edit User Menu", user);
         List<User> userList = userRepoDB.getAllUsers();
-        ViewClass.UserListView(userList);
+        showTable(userList);
 
         int userInt = validationService.getValidIntChoice("Enter the number [] for the User.", userList.size());
         User selectedUser = userList.get(userInt);
@@ -106,6 +111,37 @@ public class EditUserMenu implements ISessionMenu {
             return accessName;
 
         }
+    }
+
+    private List<List<String>> rowMaker(List<User> userList) {
+        List<List<String>> listList= new ArrayList<List<String>>();
+        int i = 0;
+        for(User user: userList) {
+            ArrayList<String> rowList = new ArrayList<>();
+            rowList.add(Integer.toString(i));
+            rowList.add(user.getUserName());
+            rowList.add(user.getPwd());
+            rowList.add(user.getFirstName());
+            rowList.add(user.getLastName());
+            rowList.add(user.getAccess().toString());
+            listList.add(rowList);
+            i++;
+        }
+        return listList;
+    }
+
+    private void showTable(List<User> users){
+        List<String> headerList = Arrays.asList("No:", "USERNAME", "PASSWORD", "FIRST NAME", "LAST NAME", "ACCESS");
+        List<List<String>> rowsList = rowMaker(users);
+        Board board = new Board(75);
+        Table table = new Table(board, 75, headerList, rowsList);
+        //table.setGridMode(Table.GRID_NON);
+
+        Block tableBlock = table.tableToBlocks();
+        board.setInitialBlock(tableBlock);
+        board.build();
+        String tableString = board.getPreview();
+        System.out.println(tableString);
     }
 
 }
