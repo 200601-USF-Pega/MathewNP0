@@ -13,9 +13,11 @@ import java.util.List;
 import java.util.Map;
 
 public class CatalogRepoDB {
+
     public void addInventory(int book_id, int count)  {
         try {
-            PreparedStatement bookCopyStatement= ConnectionService.getInstance().getConnection().prepareStatement("INSERT INTO Inventory(book_id) VALUES(?)");
+            PreparedStatement bookCopyStatement= ConnectionService.getInstance().getConnection().
+                    prepareStatement("INSERT INTO Inventory(book_id) VALUES(?)");
             bookCopyStatement.setString(1, Integer.toString(book_id));
             for (int i =0; i< count; i++) {
                 bookCopyStatement.executeUpdate();
@@ -25,14 +27,11 @@ public class CatalogRepoDB {
         }
     }
 
-    //not implemented correclty.
+
     public void deleteInventory(int book_id, int count)  {
         try {
-            PreparedStatement bookCopyStatement= ConnectionService.getInstance().getConnection().prepareStatement("INSERT INTO Inventory(book_id) VALUES(?)");
-            bookCopyStatement.setString(1, Integer.toString(book_id));
-            for (int i =0; i< count; i++) {
-                bookCopyStatement.executeUpdate();
-            }
+            Statement deleteInventoryStatment = ConnectionService.getInstance().getConnection().createStatement();
+            deleteInventoryStatment.executeUpdate("DELETE FROM Inventory where book_id = " +book_id+ " LIMIT "+ count+";");
         } catch (SQLException e ) {
             System.out.println("Exception: " + e.getMessage());
         }

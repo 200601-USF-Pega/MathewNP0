@@ -14,7 +14,7 @@ public class InventoryService {
     private CatalogRepoDB inventoryRepoDB = new CatalogRepoDB();
     private BookRepoDB bookRepoDB = new BookRepoDB();
 
-    public void getInventory() {
+    public int printInventory() {
         /**
         Map<Integer, Integer> inventoryMap = inventoryRepoDB.inventoryAvailable();
         Map<Integer, Book> bookMap = bookRepoDB.getMappedBookList();
@@ -27,9 +27,11 @@ public class InventoryService {
         **/
 
         List<Catalog>  catalogList  = new CatalogRepoDB().getAllCatalogs();
+
         for (Catalog catalog: catalogList){
             System.out.println(catalog);
         }
+        return catalogList.size();
     }
 }
 

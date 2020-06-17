@@ -21,10 +21,10 @@ public class InventoryManagementMenu implements ISessionMenu {
         ViewClass.printSessionHeader("Inventory/Book Management", user);
         System.out.println(
                 "Enter any of these options.\n" +
-                        "[1] Create a Book Listing\n" +
-                        "[2] Delete a Book Listing\n" +
+                        "[1] Create a Book Listing \n" +
+                        "[2] Delete/Add from Catalog\n" +
                         "[3] Edit a Book Listing\n" +
-                        "[4] Read Open Poole \n" +
+                        "[4] See Available Catalog\n" +
                         "[b] BACK."
         );
 
@@ -50,7 +50,7 @@ public class InventoryManagementMenu implements ISessionMenu {
                     currentMenu =  sessionMenuFactory.changeMenu("look_inventory", user);
                     currentMenu.start();
                     break;
-                case "b":
+               case "b":
                     currentMenu = sessionMenuFactory.changeMenu("user_main_menu", user);
                     currentMenu.start();
                     break;

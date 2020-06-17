@@ -71,7 +71,7 @@ public class ValidationService {
     }
 
     public boolean trueIfNotHappy (int input , int size){
-        if (input > size || input <0){
+        if (input > size-1 || input <0){
             System.out.println("Please enter a valid option");
             return true;
         }
@@ -84,7 +84,7 @@ public class ValidationService {
             System.out.println(prompt);
             try {
                 userInput = Integer.parseInt(input.nextLine());
-                if(trueIfNotHappy(userInput, size-1)) {
+                if(trueIfNotHappy(userInput, size)) {
                     continue;
                 } else {
                     break;
