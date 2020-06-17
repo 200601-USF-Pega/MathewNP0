@@ -42,9 +42,9 @@ public class Rental {
     @Override
     public String toString() {
         return "Rental{" +
-                "user=" + user.getUserName() +
+                "user=" + user.toString() +
                 ", startDate='" + startDate + '\'' +
-                ", book=" + book.getTitle() +
+                ", book=" + book.toString()+
                 '}';
     }
 }

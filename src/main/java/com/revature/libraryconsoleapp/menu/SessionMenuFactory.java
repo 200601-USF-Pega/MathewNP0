@@ -7,6 +7,7 @@ import com.revature.libraryconsoleapp.menu.adminMenus.OtherActionsMenu;
 import com.revature.libraryconsoleapp.menu.adminMenus.userManagementMenus.*;
 import com.revature.libraryconsoleapp.menu.patronMenus.BorrowFromCatalogMenu;
 import com.revature.libraryconsoleapp.menu.patronMenus.PatronMenu;
+import com.revature.libraryconsoleapp.menu.patronMenus.ReturnRentalsMenu;
 import com.revature.libraryconsoleapp.menu.sharedMenus.LookInventoryMenu;
 import com.revature.libraryconsoleapp.models.User;
 
@@ -77,6 +78,9 @@ public class SessionMenuFactory {
                 break;
             case "borrow_from_catalog":
                 newMenu = new BorrowFromCatalogMenu(user);
+                break;
+            case "return_rentals":
+                newMenu = new ReturnRentalsMenu(user);
                 break;
 
         }

@@ -44,7 +44,7 @@ public class CreateBookListingMenu implements ISessionMenu {
         inventoryRepoDB.addInventory(book_id, count);
         System.out.println("added " + count + " to the inventory." );
 
-        System.out.println("Enter any key to go back.");
+        System.out.println("Enter any key to go BACK.");
         input.nextLine();
         SessionMenuFactory sessionMenuFactory = new SessionMenuFactory();
         sessionMenuFactory.changeMenu("inventory_book_management", user).start();

@@ -40,7 +40,7 @@ public class PatronMenu implements ISessionMenu {
                     currentMenu.start();
                     break;
                 case "3":
-                    currentMenu =  sessionMenuFactory.changeMenu("return rentals", user);
+                    currentMenu =  sessionMenuFactory.changeMenu("return_rentals", user);
                     currentMenu.start();
                     break;
                 case "4":

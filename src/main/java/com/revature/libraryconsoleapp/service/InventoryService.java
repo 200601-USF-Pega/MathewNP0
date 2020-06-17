@@ -33,5 +33,17 @@ public class InventoryService {
         }
         return catalogList.size();
     }
+
+    public Map<Integer, Catalog> getInventoryMap(){
+        Map<Integer, Catalog> catalogMap = new HashMap<>();
+        List<Catalog>  catalogList  = new CatalogRepoDB().getAllCatalogs();
+        int index = 1;
+        for(Catalog catalog: catalogList) {
+            System.out.println(catalog.getBook().getTitle());
+            catalogMap.put(1, catalog);
+            index++;
+        }
+        return catalogMap;
+    }
 }
 
