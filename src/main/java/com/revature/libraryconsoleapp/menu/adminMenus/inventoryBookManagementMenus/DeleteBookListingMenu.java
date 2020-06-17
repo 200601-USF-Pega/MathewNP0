@@ -31,6 +31,10 @@ public class DeleteBookListingMenu implements ISessionMenu {
         ViewClass.printSessionHeader("Add/Delete Catalog.", user);
         List<Book> bookListing = bookRepoDB.getAllBooks();
         ViewClass.UserListView(bookListing);
+
+        System.out.println();
+        System.out.println();
+
         List<Catalog> catalogList= catalogRepoDB.getAllCatalogs();
         ViewClass.UserListView(catalogList);
         System.out.println("click any key to BACK.");

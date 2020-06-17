@@ -31,6 +31,15 @@ public class RentalRepoDB {
         return null;
     }
 
+    public void deleteEntry(int book_id, User user)  {
+        try {
+            Statement deleteInventoryStatment = ConnectionService.getInstance().getConnection().createStatement();
+            deleteInventoryStatment.executeUpdate("DELETE FROM Rentals where user_name = '"+user.getUserName()+"' and book_id = '"+book_id+"';\n");
+        } catch (SQLException e ) {
+            System.out.println("Exception: " + e.getMessage());
+        }
+    }
+
     public List<Rental> getAllRentalsForAUser(User user) {
         List<Rental> rentalList = new ArrayList<>();
         try {

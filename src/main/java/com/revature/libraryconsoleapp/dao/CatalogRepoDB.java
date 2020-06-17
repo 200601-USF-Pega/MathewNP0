@@ -31,7 +31,7 @@ public class CatalogRepoDB {
     public void deleteInventory(int book_id, int count)  {
         try {
             Statement deleteInventoryStatment = ConnectionService.getInstance().getConnection().createStatement();
-            deleteInventoryStatment.executeUpdate("DELETE FROM Inventory where book_id = " +book_id+ " LIMIT "+ count+";");
+            deleteInventoryStatment.executeUpdate("DELETE FROM Inventory where book_id =" +book_id+ " LIMIT " + count + ";" );
         } catch (SQLException e ) {
             System.out.println("Exception: " + e.getMessage());
         }
