@@ -10,9 +10,7 @@
 - user is allowed to see the history of the books he/she previously rented.
 
 
-external view library used
-source for wagu: https://github.com/thedathoudarya/WAGU-data-in-table-view
-used for neatly formatted table like views.
+external view library wagu used from here [link](https://github.com/thedathoudarya/WAGU-data-in-table-view). Used to structure table like views.
 
 
 
